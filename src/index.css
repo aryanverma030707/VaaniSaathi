@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@theme {
+  /* Map existing utility names onto the supplied product palette. */
+  --color-slate-50: #f0f3f5;
+  --color-slate-100: #e0e7eb;
+  --color-slate-200: #c1cfd7;
+  --color-slate-300: #a2b7c3;
+  --color-slate-400: #849fae;
+  --color-slate-500: #65889a;
+  --color-slate-600: #516c7b;
+  --color-slate-700: #3c515d;
+  --color-slate-800: #28363e;
+  --color-slate-900: #141b1f;
+  --color-slate-950: #0e1316;
+
+  --color-gray-50: #f1f1f4;
+  --color-gray-100: #e2e2e9;
+  --color-gray-200: #c6c6d2;
+  --color-gray-300: #a9a9bc;
+  --color-gray-400: #8d8da5;
+  --color-gray-500: #70708f;
+  --color-gray-600: #5a5a72;
+  --color-gray-700: #434356;
+  --color-gray-800: #2d2d39;
+  --color-gray-900: #16161d;
+  --color-gray-950: #101014;
+
+  --color-zinc-50: #f4f2f1;
+  --color-zinc-100: #e8e6e3;
+  --color-zinc-200: #d2ccc6;
+  --color-zinc-300: #bbb3aa;
+  --color-zinc-400: #a4998e;
+  --color-zinc-500: #8e8071;
+  --color-zinc-600: #71665b;
+  --color-zinc-700: #554d44;
+  --color-zinc-800: #39332d;
+  --color-zinc-900: #1c1a17;
+  --color-zinc-950: #141210;
+
+  --color-violet-50: #f1f5ff;
+  --color-violet-100: #e0eaff;
+  --color-violet-200: #c5d5ff;
+  --color-violet-300: #9db7ff;
+  --color-violet-400: #7092f5;
+  --color-violet-500: #4f72dc;
+  --color-violet-600: #3658bd;
+  --color-violet-700: #2c4798;
+  --color-violet-800: #263b78;
+  --color-violet-900: #1f2f5e;
+  --color-violet-950: #172244;
+
+  --color-blue-50: #f0f3f5;
+  --color-blue-100: #e0e7eb;
+  --color-blue-200: #c1cfd7;
+  --color-blue-300: #a2b7c3;
+  --color-blue-400: #849fae;
+  --color-blue-500: #65889a;
+  --color-blue-600: #516c7b;
+  --color-blue-700: #3c515d;
+  --color-blue-800: #28363e;
+  --color-blue-900: #141b1f;
+  --color-blue-950: #0e1316;
+
+  --color-emerald-50: #f3f9eb;
+  --color-emerald-100: #e6f3d8;
+  --color-emerald-200: #cee7b1;
+  --color-emerald-300: #b5db8a;
+  --color-emerald-400: #9dcf63;
+  --color-emerald-500: #84c33c;
+  --color-emerald-600: #6a9c30;
+  --color-emerald-700: #4f7524;
+  --color-emerald-800: #354e18;
+  --color-emerald-900: #1a270c;
+  --color-emerald-950: #121b08;
+
+  --color-amber-50: #fcfde7;
+  --color-amber-100: #f9fbd0;
+  --color-amber-200: #f3f7a1;
+  --color-amber-300: #edf471;
+  --color-amber-400: #e7f042;
+  --color-amber-500: #e1ec13;
+  --color-amber-600: #b4bd0f;
+  --color-amber-700: #878e0b;
+  --color-amber-800: #5a5e08;
+  --color-amber-900: #2d2f04;
+  --color-amber-950: #202103;
+
+  --color-orange-400: #9dcf63;
+  --color-orange-500: #84c33c;
+  --color-orange-600: #6a9c30;
+  --color-orange-950: #1a270c;
+  --color-purple-400: #a4998e;
+  --color-purple-500: #8e8071;
+  --color-red-500: #8e8071;
+  --color-red-600: #71665b;
+  --color-white: #fcfde7;
+  --color-black: #141b1f;
+}
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-olchiki {
+  font-family: 'Noto Sans Ol Chiki', sans-serif;
+}
+
+/* Keep legacy dark-surface utilities readable on the light product theme. */
+[class*="bg-slate-950"],
+[class*="bg-slate-900"],
+[class*="bg-slate-800"],
+[class*="bg-zinc-900"],
+[class*="bg-gray-900"],
+[class~="bg-black"] {
+  background-color: #f0f3f5 !important;
+}
+
+[class*="from-slate-900"],
+[class*="from-slate-950"],
+[class*="from-amber-950"],
+[class*="via-slate-900"],
+[class*="via-orange-950"] {
+  --tw-gradient-from: #f0f3f5 var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(240 243 245 / 0) var(--tw-gradient-to-position) !important;
+}
+
+[class*="to-slate-900"],
+[class*="to-slate-950"] {
+  --tw-gradient-to: #e0e7eb var(--tw-gradient-to-position) !important;
+}
+
+/* Rebalance text contrast after converting dark surfaces to light surfaces. */
+[class~="text-white"],
+[class*="text-slate-100"],
+[class*="text-slate-200"] {
+  color: #141b1f !important;
+}
+
+[class*="text-slate-300"],
+[class*="text-slate-400"],
+[class*="text-slate-500"] {
+  color: #3c515d !important;
+}
+
+[class*="text-amber-200"],
+[class*="text-amber-300"],
+[class*="text-amber-400"] {
+  color: #4f7524 !important;
+}
+
+[class*="text-emerald-300"],
+[class*="text-emerald-400"] {
+  color: #4f7524 !important;
+}
+
+[class*="text-purple-400"],
+[class*="text-orange-400"] {
+  color: #71665b !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f0f3f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #a2b7c3;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #849fae;
+}
+
+/* Audio wave pulse animation */
+@keyframes audioPulse {
+  0%, 100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.animate-audio-bar-1 { animation: audioPulse 0.8s ease-in-out infinite 0.1s; }
+.animate-audio-bar-2 { animation: audioPulse 0.8s ease-in-out infinite 0.3s; }
+.animate-audio-bar-3 { animation: audioPulse 0.8s ease-in-out infinite 0.2s; }
+.animate-audio-bar-4 { animation: audioPulse 0.8s ease-in-out infinite 0.4s; }
+
+/* Print styles for A4 worksheets */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+
+  .worksheet-a4 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    box-shadow: none !important;
+    border: 2px solid #000 !important;
+    page-break-inside: avoid;
+    background: white !important;
+    color: black !important;
+  }
+
+  .worksheet-a4 * {
+    color: black !important;
+    border-color: #333 !important;
+  }
+}
